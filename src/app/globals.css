@@ -1,0 +1,101 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --hunter:      #2d6a4f;
+  --hunter-dark: #1a3a2a;
+  --hunter-mid:  #1f5438;
+  --creme:       #faf7ed;
+  --creme-dark:  #f5edd8;
+  --creme-mid:   #ede0be;
+  --bark:        #4a3728;
+  --text-main:   #1a3a2a;
+  --text-muted:  #5a7a65;
+
+  /* Type scale — optical sizing for crispness */
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #faf7ed;
+  color: #1a3a2a;
+  letter-spacing: -0.01em;
+}
+
+/* Serif headings — Playfair Display for more authority than DM Serif */
+.font-serif {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-feature-settings: "kern" 1, "liga" 1;
+  letter-spacing: -0.02em;
+}
+
+/* Crisp mono */
+.font-mono {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-feature-settings: "liga" 0;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: #f5edd8; }
+::-webkit-scrollbar-thumb { background: #2d6a4f; border-radius: 3px; }
+
+/* Crowd badges */
+.badge-quiet      { background: #d8f3dc; color: #1f5438; }
+.badge-moderate   { background: #fff3cd; color: #856404; }
+.badge-busy       { background: #ffe0b2; color: #e65100; }
+.badge-very-busy  { background: #ffcdd2; color: #b71c1c; }
+
+/* Card hover */
+.card-hover { transition: transform 0.18s ease, box-shadow 0.18s ease; }
+.card-hover:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(45,106,79,0.13); }
+
+/* Noise texture overlay */
+.noise-overlay { position: relative; }
+.noise-overlay::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none; border-radius: inherit;
+}
+
+/* Hero typography — tighter tracking for display sizes */
+.hero-display {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+/* Stat numbers */
+.stat-number {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* Section labels */
+.label-caps {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@layer utilities {
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .tracking-tightest { letter-spacing: -0.04em; }
+}
